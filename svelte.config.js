@@ -1,6 +1,4 @@
 import adapter from '@sveltejs/adapter-auto';
-import { kitDocsPlugin } from '@svelteness/kit-docs/node';
-import Icons from 'unplugin-icons/vite';
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
@@ -8,22 +6,10 @@ const config = {
 
   kit: {
     adapter: adapter(),
-
     prerender: {
       default: true,
       entries: ['*'],
-    },
-
-    vite: {
-      plugins: [
-        Icons({ compiler: 'svelte' }),
-        kitDocsPlugin({
-          shiki: {
-            theme: 'material-ocean',
-          },
-        }),
-      ],
-    },
+    }
   },
 };
 
