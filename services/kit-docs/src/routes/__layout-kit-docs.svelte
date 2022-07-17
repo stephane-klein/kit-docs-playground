@@ -66,6 +66,9 @@
     </div>
 
     <slot />
+    <div slot="navbar-right-alt">
+        foobar
+    </div>
   </KitDocsLayout>
 </KitDocs>
 
