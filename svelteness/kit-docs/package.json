@@ -1,0 +1,61 @@
+{
+  "name": "kit-docs-workspace",
+  "version": "0.23.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "pnpm -F kit-docs build",
+    "clean": "pnpm -F kit-docs clean",
+    "dev": "pnpm -F kit-docs dev",
+    "lint": "pnpm -F kit-docs dev",
+    "preview": "pnpm -F kit-docs kit:preview",
+    "preinstall": "npx only-allow pnpm",
+    "docs:build": "pnpm -F kit-docs kit:build",
+    "docs:preview": "pnpm preview",
+    "demo:dev": "pnpm -F demo dev",
+    "demo:build": "pnpm -F demo build",
+    "demo:preview": "pnpm -F demo preview",
+    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s",
+    "release": "pnpm clean && pnpm build && node .scripts/release.js"
+  },
+  "devDependencies": {
+    "@types/node": "^17.0.8",
+    "@typescript-eslint/eslint-plugin": "^4.28.4",
+    "@typescript-eslint/parser": "^4.24.0",
+    "conventional-changelog-cli": "^2.1.1",
+    "enquirer": "^2.3.6",
+    "esbuild": "^0.14.23",
+    "eslint": "^7.17.0",
+    "eslint-config-prettier": "^8.1.0",
+    "eslint-import-resolver-typescript": "^2.5.0",
+    "eslint-plugin-import": "^2.25.4",
+    "eslint-plugin-simple-import-sort": "^7.0.0",
+    "eslint-plugin-svelte3": "^3.2.1",
+    "execa": "^6.1.0",
+    "fast-glob": "^3.2.7",
+    "husky": "^7.0.0",
+    "kleur": "^4.1.4",
+    "lint-staged": "^12.1.5",
+    "minimist": "^1.2.6",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^2.6.0",
+    "prettier-plugin-svelte": "^2.5.0",
+    "prettier-plugin-tailwindcss": "^0.1.7",
+    "rimraf": "^3.0.2",
+    "semver": "^7.3.7",
+    "svelte": "^3.46.4",
+    "typescript": "^4.5.4"
+  },
+  "lint-staged": {
+    "*.{js,ts,svelte}": "eslint --cache --fix",
+    "*.{js,ts,md,json,svelte}": "prettier --write"
+  },
+  "engines": {
+    "node": ">=14.19.0",
+    "pnpm": ">=6"
+  },
+  "volta": {
+    "node": "14.19.0"
+  },
+  "packageManager": "pnpm@6.32.3"
+}

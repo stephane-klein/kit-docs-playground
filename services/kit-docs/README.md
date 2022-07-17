@@ -2,6 +2,7 @@
 
 ```sh
 $ pnpm install
+$ pnpm link ../../github.com/svelteness/kit-docs/packages/kit-docs
 $ pnpm run dev
 ```
 
