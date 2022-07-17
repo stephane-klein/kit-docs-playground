@@ -4,7 +4,8 @@
   export const load = createKitDocsLoader({
     sidebar: {
       '/': null,
-      '/docs': '/docs',
+      '/docs/en/': '/docs/en/',
+      '/docs/fr/': '/docs/fr/',
     },
   });
 </script>
