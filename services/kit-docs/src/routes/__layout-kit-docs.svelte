@@ -28,6 +28,8 @@
     createSidebarContext,
   } from '@svelteness/kit-docs';
 
+  import LangSwitchMenu from '$lib/LangSwitchMenu.svelte';
+
   /** @type {import('@svelteness/kit-docs').MarkdownMeta | null} */
   export let meta = null;
 
@@ -67,7 +69,7 @@
 
     <slot />
     <div slot="navbar-right-alt">
-        foobar
+        <LangSwitchMenu />
     </div>
   </KitDocsLayout>
 </KitDocs>
