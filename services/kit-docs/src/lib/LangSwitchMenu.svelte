@@ -5,9 +5,10 @@
 aaa
 <Menu>
     <svelte:fragment slot="button">
-        <span class="sr-only">FR</span>
+        French
+        <span class="sr-only">French</span>
     </svelte:fragment>
 
-    <MenuItem>English</MenuItem>
-    <MenuItem>French</MenuItem>
+    <MenuItem><a href="/">English</a></MenuItem>
+    <MenuItem><a href="/">French</a></MenuItem>
 </Menu>
