@@ -1,14 +1,15 @@
 <script lang="ts">
   import { Menu, MenuItem } from '@svelteness/kit-docs';
+  import { frontmatter } from '@svelteness/kit-docs';
 </script>
 
-aaa
 <Menu>
     <svelte:fragment slot="button">
         French
         <span class="sr-only">French</span>
     </svelte:fragment>
 
-    <MenuItem><a href="/">English</a></MenuItem>
-    <MenuItem><a href="/">French</a></MenuItem>
+    {#each Object.entries($frontmatter.lang) as [lang, url]}
+        <MenuItem><a href="{url}">{lang}</a></MenuItem>
+    {/each}
 </Menu>

@@ -1,13 +1,33 @@
 <script context="module">
   export const prerender = true;
 
-  export const load = createKitDocsLoader({
-    sidebar: {
-      '/': null,
-      '/docs/en/': '/docs/en/',
-      '/docs/fr/': '/docs/fr/',
-    },
-  });
+  export const load = async ({ url, fetch }) => {
+    const match = url.pathname.match(/(?<left_part>^\/docs\/)(?<lang>\w{2})(?<right_part>\/.*$)/)
+    const meta = await loadKitDocsMeta(url.pathname, { fetch });
+    if (!meta.frontmatter.lang) {
+        meta.frontmatter.lang = {}
+    }
+
+    ['fr', 'en', 'de', 'es'].forEach(lang => {
+        if (!meta.frontmatter.lang[lang]) {
+            meta.frontmatter.lang[lang] = `${match.groups.left_part}${lang}${match.groups.right_part}`;
+        }
+    });
+
+    return {
+      props: {
+        meta,
+        sidebar: await loadKitDocsSidebar(
+            {
+              '/': null,
+              '/docs/en/': '/docs/en/',
+              '/docs/fr/': '/docs/fr/'
+            },
+            { url, fetch }
+        )
+      }
+    };
+  };
 </script>
 
 <script>
@@ -25,6 +45,8 @@
     KitDocs,
     KitDocsLayout,
     createKitDocsLoader,
+    loadKitDocsMeta,
+    loadKitDocsSidebar,
     createSidebarContext,
   } from '@svelteness/kit-docs';
 
