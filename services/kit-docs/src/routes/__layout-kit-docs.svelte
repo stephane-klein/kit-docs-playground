@@ -4,6 +4,7 @@
   export const load = async ({ url, fetch }) => {
     const match = url.pathname.match(/(?<left_part>^\/docs\/)(?<lang>\w{2})(?<right_part>\/.*$)/)
     const meta = await loadKitDocsMeta(url.pathname, { fetch });
+    meta.frontmatter.current_lang = match.groups.lang;
     if (!meta.frontmatter.lang) {
         meta.frontmatter.lang = {}
     }

@@ -5,8 +5,8 @@
 
 <Menu>
     <svelte:fragment slot="button">
-        French
-        <span class="sr-only">French</span>
+        {$frontmatter.current_lang}
+        <span class="sr-only">{$frontmatter.current_lang}</span>
     </svelte:fragment>
 
     {#each Object.entries($frontmatter.lang) as [lang, url]}
