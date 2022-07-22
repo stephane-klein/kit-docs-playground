@@ -1,6 +1,8 @@
 <script lang="ts">
   import { Menu, MenuItem } from '@svelteness/kit-docs';
   import { frontmatter } from '@svelteness/kit-docs';
+  import { getI18nContext } from '@svelteness/kit-docs';
+  const i18n = getI18nContext();
 </script>
 
 <Menu>
@@ -10,6 +12,6 @@
     </svelte:fragment>
 
     {#each Object.entries($frontmatter.lang) as [lang, url]}
-        <MenuItem><a href="{url}">{lang}</a></MenuItem>
+        <MenuItem><a href="{url}">{i18n.lang?.[lang] ?? lang}</a></MenuItem>
     {/each}
 </Menu>
