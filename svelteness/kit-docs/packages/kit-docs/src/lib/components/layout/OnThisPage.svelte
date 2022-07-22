@@ -6,7 +6,8 @@
   import { hasMarkdownHeaders, kitDocs } from '$lib/stores/kitDocs';
   import { page } from '$app/stores';
   import { useActiveHeaderLinks } from './useActiveHeaderLinks';
-  import { getI18nContext, getNavigationContext } from './contexts';
+  import { getNavigationContext } from './contexts';
+  import { t } from '$lib/translations';
 
   let __class = '';
   export { __class as class };
@@ -14,14 +15,13 @@
   export let style = '';
 
   const nav = getNavigationContext();
-  const i18n = getI18nContext();
 
   useActiveHeaderLinks(nav);
 </script>
 
 {#if hasMarkdownHeaders($kitDocs.meta)}
   <div class={clsx('on-this-page', __class)} {style}>
-    <h5 class="font-semibold w-full text-left text-gray-inverse text-lg">{$i18n.toc.title}</h5>
+    <h5 class="font-semibold w-full text-left text-gray-inverse text-lg">{$t('toc.title')}</h5>
     <ul class="space-y-4 mt-4">
       {#each $kitDocs.meta.headers as header (header.slug)}
         <li

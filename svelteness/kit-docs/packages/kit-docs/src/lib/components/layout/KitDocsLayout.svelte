@@ -13,14 +13,11 @@
   import OnThisPage from './OnThisPage.svelte';
   import {
     createSidebarContext,
-    DEFAULT_I18N_TRANSLATIONS,
     DEFAULT_NAVIGATION_CONFIG,
     getSidebarContext,
-    setI18nContext,
     setNavbarContext,
     setNavigationContext,
     setSidebarContext,
-    type I18NTranslations,
     type NavbarConfig,
     type NavigationConfig,
     type SidebarConfig,
@@ -29,11 +26,11 @@
   import { isLargeScreen } from '$lib/stores/isLargeScreen';
   import { scrollDirection, scrollTop } from '$lib/stores/scroll';
   import { kitDocs } from '$lib/stores/kitDocs';
+  import { t } from '$lib/translations';
 
   export let navigation: Partial<NavigationConfig> | null = null;
   export let navbar: NavbarConfig | false;
   export let sidebar: SidebarConfig | null = null;
-  export let i18n: Partial<I18NTranslations> | null = null;
 
   export let isSidebarOpen = false;
   export let isNavPopoverOpen = false;
@@ -53,10 +50,6 @@
   const sidebarConfig = writable<SidebarConfig | null>();
   $: $sidebarConfig = sidebar;
   setSidebarContext(createSidebarContext(sidebarConfig));
-
-  const i18nContext = writable<I18NTranslations>();
-  $: $i18nContext = { ...DEFAULT_I18N_TRANSLATIONS, ...i18n };
-  setI18nContext(i18nContext);
 
   const {
     activeCategory,
@@ -140,7 +133,7 @@
                     },
                   }}
                 >
-                  <span class="sr-only">{$i18nContext.nav.openSidebar}</span>
+                  <span class="sr-only">{$t('nav.openSidebar')}</span>
                   <MenuUnfoldIcon width="28" height="28" />
                 </button>
               {/if}
@@ -259,7 +252,7 @@
           {#if $previousLink}
             <div class="mb-4 flex flex-col items-start">
               <span class="text-gray-inverse ml-3 mb-4 inline-block"
-                >{$i18nContext.nav.previous}</span
+                >{$t('nav.previous')}</span
               >
               <Button
                 arrow="left"
@@ -274,7 +267,7 @@
 
           {#if $nextLink}
             <div class="ml-auto mb-4 flex flex-col items-end">
-              <span class="text-gray-inverse mr-3 mb-4 inline-block">{$i18nContext.nav.next}</span>
+              <span class="text-gray-inverse mr-3 mb-4 inline-block">{$t('nav.next')}</span>
               <Button
                 arrow="right"
                 href={$nextLink.slug}

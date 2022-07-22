@@ -146,6 +146,7 @@ importers:
       svelte-class-transition: ^1.0.4
       svelte-preprocess: ^4.10.4
       svelte2tsx: ^0.5.6
+      sveltekit-i18n: ^2.2.2
       tailwindcss: ^3.0.23
       toml: ^3.0.0
       tslib: ^2.3.0
@@ -159,6 +160,7 @@ importers:
       kleur: 4.1.5
       shiki: 0.10.1
       svelte-class-transition: 1.0.4_svelte@3.49.0
+      sveltekit-i18n: 2.2.2_svelte@3.49.0
     devDependencies:
       '@algolia/client-search': 4.13.1
       '@docsearch/css': 3.1.1
@@ -672,6 +674,20 @@ packages:
     transitivePeerDependencies:
       - supports-color
     dev: true
+
+  /@sveltekit-i18n/base/1.2.1_svelte@3.49.0:
+    resolution: {integrity: sha512-F8gqG2+KAOeT0o2wYlUrW3TRCX7zaD7rBy/1CEVNw0irfw9TgFf/ODmhubkHHT3+6Zk+SMz8RNgeuffBfAMbJw==}
+    peerDependencies:
+      svelte: ^3.x
+    dependencies:
+      svelte: 3.49.0
+    optionalDependencies:
+      '@sveltekit-i18n/parser-default': 1.0.3
+    dev: false
+
+  /@sveltekit-i18n/parser-default/1.0.3:
+    resolution: {integrity: sha512-HheveklTjp3hxpYQhoHfyA6B4bQaUeSV5MQf2usIv/58UF2jY/YqhCAWj9bDBjufbuZc5pSz4BXvdX3WVT+viA==}
+    dev: false
 
   /@tailwindcss/typography/0.5.4_tailwindcss@3.1.6:
     resolution: {integrity: sha512-QEdg40EmGvE7kKoDei8zr5sf4D1pIayHj4R31bH3lX8x2BtTiR+jNejYPOkhbmy3DXgkMF9jC8xqNiGFAuL9Sg==}
@@ -4590,6 +4606,16 @@ packages:
       svelte: 3.49.0
       typescript: 4.7.4
     dev: true
+
+  /sveltekit-i18n/2.2.2_svelte@3.49.0:
+    resolution: {integrity: sha512-6eygICleGCSL7elY7A3trF8XUhV+mlW56ZSoD0UUKXlw+Y6u0MTTHDq48u1LyY73SfnlbPHXgTarhTjZ0BvUKA==}
+    peerDependencies:
+      svelte: ^3.x
+    dependencies:
+      '@sveltekit-i18n/base': 1.2.1_svelte@3.49.0
+      '@sveltekit-i18n/parser-default': 1.0.3
+      svelte: 3.49.0
+    dev: false
 
   /table/6.8.0:
     resolution: {integrity: sha512-s/fitrbVeEyHKFa7mFdkuQMWlH1Wgw/yEXMt5xACT4ZpzWFluehAxRtUUQKPuWhaLAWhFcVx6w3oC8VKaUfPGA==}

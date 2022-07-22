@@ -11,7 +11,8 @@
 
   import ColorSchemeMenu from '$lib/components/base/ColorSchemeMenu.svelte';
   import NavLinkItem from './NavLink.svelte';
-  import { getI18nContext, getNavbarContext } from './contexts';
+  import { getNavbarContext } from './contexts';
+  import { t } from '$lib/translations';
 
   export let search = false;
 
@@ -27,8 +28,6 @@
 
   const context = getNavbarContext();
   $: navLinks = $context.links;
-
-  const i18n = getI18nContext();
 </script>
 
 <div
@@ -47,13 +46,13 @@
       <Popover overlay on:open={onOpenPopover} on:close={onClosePopover}>
         <svelte:fragment slot="button">
           <MenuIcon width="30" height="30" />
-          <span class="sr-only">{$i18n.nav.mainMenu}</span>
+          <span class="sr-only">{$t('nav.mainMenu')}</span>
         </svelte:fragment>
 
         <slot name="popover-top" />
 
         <section class="flex flex-col items-start">
-          <h1 class="mb-6 text-xl font-medium">{$i18n.nav.links}</h1>
+          <h1 class="mb-6 text-xl font-medium">{$t('nav.links')}</h1>
           <nav>
             <ul>
               {#each navLinks as navLink (navLink.title)}
@@ -68,7 +67,7 @@
         <hr class="my-6 h-2 w-full border-t-2 border-dashed border-gray-200 dark:border-gray-400" />
 
         <section class="flex flex-col items-start">
-          <h1 class="mb-6 text-xl font-medium">{$i18n.nav.options}</h1>
+          <h1 class="mb-6 text-xl font-medium">{$t('nav.options')}</h1>
           <div class="flex flex-col space-y-6">
             <slot name="popover-options" />
             <div class="flex items-center">
@@ -78,16 +77,16 @@
                 class="relative ml-4 flex items-center border border-gray-200 px-4 py-1 dark:border-gray-400 rounded-md focus-within:ring-2"
                 style="--tw-ring-color: var(--kd-color-focus);"
               >
-                <span class="sr-only">{$i18n.colorScheme.theme}</span>
+                <span class="sr-only">{$t('colorScheme.theme')}</span>
                 {uppercaseFirstLetter($colorScheme)}
                 <ArrowDropDownIcon width="20" height="20" class="ml-1" />
                 <select
                   class="absolute inset-0 appearance-none opacity-0"
                   bind:value={$colorScheme}
                 >
-                  <option value="light">{$i18n.colorScheme.light}</option>
-                  <option value="dark">{$i18n.colorScheme.dark}</option>
-                  <option value="system">{$i18n.colorScheme.system}</option>
+                  <option value="light">{$t('colorScheme.light')}</option>
+                  <option value="dark">{$t('colorScheme.dark')}</option>
+                  <option value="system">{$t('colorScheme.system')}</option>
                 </select>
               </label>
             </div>

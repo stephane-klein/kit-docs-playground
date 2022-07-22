@@ -63,7 +63,8 @@
     "clsx": "^1.1.1",
     "kleur": "^4.1.4",
     "shiki": "^0.10.1",
-    "svelte-class-transition": "^1.0.4"
+    "svelte-class-transition": "^1.0.4",
+    "sveltekit-i18n": "^2.2.2"
   },
   "devDependencies": {
     "@algolia/client-search": "^4.13.0",
