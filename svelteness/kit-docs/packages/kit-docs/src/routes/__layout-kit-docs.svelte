@@ -5,7 +5,7 @@
     sidebar: {
       '/': null,
       '/docs': '/docs',
-    },
+    }
   });
 </script>
 
@@ -29,6 +29,7 @@
     createKitDocsLoader,
     createSidebarContext,
   } from '$lib';
+  import * as i18n from '$lib/translations/index';
 
   // import '@docsearch/css';
   // import '$lib/styles/docsearch.css';
@@ -78,7 +79,7 @@
 </svelte:head>
 
 <KitDocs {meta}>
-  <KitDocsLayout {navbar} {sidebar}>
+  <KitDocsLayout {navbar} {sidebar} {i18n}>
     <!-- <Algolia
       apiKey="599cec31baffa4868cae4e79f180729b"
       appId="R2IYF7ETH7"

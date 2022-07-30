@@ -214,3 +214,17 @@ export function getSidebarContext(): SidebarContext {
   }
 }
 
+export const I18N_CONTEXT_KEY = Symbol();
+
+export function getI18nContext() {
+  try {
+    return getContext(I18N_CONTEXT_KEY);
+  } catch (e) {
+    console.error(e);
+    console.warn('[kit-docs]: attempted to get i18n context before setting it.');
+  }
+}
+
+export function setI18nContext(context) {
+  setContext(I18N_CONTEXT_KEY, context);
+}

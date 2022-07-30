@@ -18,6 +18,7 @@
     setNavbarContext,
     setNavigationContext,
     setSidebarContext,
+    setI18nContext,
     type NavbarConfig,
     type NavigationConfig,
     type SidebarConfig,
@@ -26,7 +27,6 @@
   import { isLargeScreen } from '$lib/stores/isLargeScreen';
   import { scrollDirection, scrollTop } from '$lib/stores/scroll';
   import { kitDocs } from '$lib/stores/kitDocs';
-  import { t } from '$lib/translations';
 
   export let navigation: Partial<NavigationConfig> | null = null;
   export let navbar: NavbarConfig | false;
@@ -36,6 +36,7 @@
   export let isNavPopoverOpen = false;
 
   export let search = false;
+  export let i18n = null;
 
   let closeSidebar: CloseDialogCallback;
 
@@ -50,6 +51,9 @@
   const sidebarConfig = writable<SidebarConfig | null>();
   $: $sidebarConfig = sidebar;
   setSidebarContext(createSidebarContext(sidebarConfig));
+
+  setI18nContext(i18n);
+  const { t } = i18n;
 
   const {
     activeCategory,
