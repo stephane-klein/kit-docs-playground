@@ -78,7 +78,7 @@
   $: category = $activeCategory ? `${$activeCategory}: ` : '';
   $: title = meta ? `${category}${meta.title} | KitDocs` : null;
   $: description = meta?.description;
-  $locale = meta?.frontmatter?.current_lang ?? $locale;
+  $: $locale = meta?.frontmatter?.current_lang ?? $locale;
 </script>
 
 <svelte:head>
