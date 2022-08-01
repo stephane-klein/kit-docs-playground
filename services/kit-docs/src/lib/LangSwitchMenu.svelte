@@ -11,7 +11,7 @@
         <span class="sr-only">{$t(`lang.${$frontmatter.current_lang}`, {fallbackValue: $frontmatter.current_lang})}</span>
     </svelte:fragment>
 
-    {#each Object.entries($frontmatter.lang) as [lang, url]}
+    {#each Object.entries($frontmatter?.lang ?? []) as [lang, url]}
         <MenuItem><a href="{url}">{$t(`lang.${lang}`)}</a></MenuItem>
     {/each}
 </Menu>

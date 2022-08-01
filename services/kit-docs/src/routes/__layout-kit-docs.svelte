@@ -5,17 +5,24 @@
 
   export const load = async ({ url, fetch }) => {
     const match = url.pathname.match(/(?<left_part>^\/docs\/)(?<lang>\w{2})(?<right_part>\/.*$)/)
-    const meta = await loadKitDocsMeta(url.pathname, { fetch });
-    meta.frontmatter.current_lang = match.groups.lang;
+    let meta = await loadKitDocsMeta(url.pathname, { fetch });
+    if (!meta) {
+      meta = {
+        frontmatter: {}
+      }
+    }
     if (!meta.frontmatter.lang) {
         meta.frontmatter.lang = {}
     }
+    meta.frontmatter.current_lang = match?.groups?.lang ?? 'en';
 
-    ['fr', 'en', 'de', 'es'].forEach(lang => {
+    if (match) {
+      ['fr', 'en', 'de', 'es'].forEach(lang => {
         if (!meta.frontmatter.lang[lang]) {
-            meta.frontmatter.lang[lang] = `${match.groups.left_part}${lang}${match.groups.right_part}`;
+          meta.frontmatter.lang[lang] = `${match.groups.left_part}${lang}${match.groups.right_part}`;
         }
-    });
+      });
+    }
 
     return {
       props: {
@@ -71,7 +78,7 @@
   $: category = $activeCategory ? `${$activeCategory}: ` : '';
   $: title = meta ? `${category}${meta.title} | KitDocs` : null;
   $: description = meta?.description;
-  $locale = meta.frontmatter.current_lang;
+  $locale = meta?.frontmatter?.current_lang ?? $locale;
 </script>
 
 <svelte:head>

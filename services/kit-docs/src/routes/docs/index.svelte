@@ -5,7 +5,7 @@
   export function load() {
     return {
       status: 307,
-      redirect: '/docs/first-category/first-page',
+      redirect: '/docs/en/first-category/first-page',
     };
   }
 </script>
