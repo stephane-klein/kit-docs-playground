@@ -1,5 +1,4 @@
 import adapter from '@sveltejs/adapter-auto';
-import preprocess from 'svelte-preprocess';
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
@@ -7,10 +6,6 @@ const config = {
   compilerOptions: {
     enableSourcemap: true,
   },
-
-  preprocess: preprocess({
-    sourceMap: true
-  }),
 
   kit: {
     adapter: adapter(),

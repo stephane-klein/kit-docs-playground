@@ -41,6 +41,7 @@
   import { page } from '$app/stores';
   import SvelteLogo from '$img/svelte-horizontal.svg?raw';
 
+  import * as i18n from '$lib/translations/index';
   import {
     Button,
     KitDocs,
@@ -83,7 +84,7 @@
 </svelte:head>
 
 <KitDocs {meta}>
-  <KitDocsLayout {navbar} {sidebar}>
+  <KitDocsLayout {navbar} {sidebar} {i18n}>
     <div class="logo" slot="navbar-left">
       <Button href="/">
         {@html SvelteLogo}

@@ -15,12 +15,14 @@ specifiers:
   prettier-plugin-svelte: 2.7.0
   shiki: 0.10.1
   svelte: 3.48.0
+  sveltekit-i18n: ^2.2.2
   unplugin-icons: 0.13.4
   vite: 2.9.14
 
 dependencies:
   '@fontsource/fira-mono': 4.5.0
   cookie: 0.4.1
+  sveltekit-i18n: 2.2.2_svelte@3.48.0
 
 devDependencies:
   '@iconify-json/ri': 1.1.1
@@ -222,6 +224,20 @@ packages:
     transitivePeerDependencies:
       - supports-color
     dev: true
+
+  /@sveltekit-i18n/base/1.2.1_svelte@3.48.0:
+    resolution: {integrity: sha512-F8gqG2+KAOeT0o2wYlUrW3TRCX7zaD7rBy/1CEVNw0irfw9TgFf/ODmhubkHHT3+6Zk+SMz8RNgeuffBfAMbJw==}
+    peerDependencies:
+      svelte: ^3.x
+    dependencies:
+      svelte: 3.48.0
+    optionalDependencies:
+      '@sveltekit-i18n/parser-default': 1.0.3
+    dev: false
+
+  /@sveltekit-i18n/parser-default/1.0.3:
+    resolution: {integrity: sha512-HheveklTjp3hxpYQhoHfyA6B4bQaUeSV5MQf2usIv/58UF2jY/YqhCAWj9bDBjufbuZc5pSz4BXvdX3WVT+viA==}
+    dev: false
 
   /@vercel/nft/0.20.1:
     resolution: {integrity: sha512-hSLcr64KHOkcNiTAlv154K4p4faEFBwYIi2eIgu1QCDhB1qyQYvFuEhtw3eaapNjA4/7x/2jcclfCAjILua/ag==}
@@ -1553,7 +1569,16 @@ packages:
   /svelte/3.48.0:
     resolution: {integrity: sha512-fN2YRm/bGumvjUpu6yI3BpvZnpIm9I6A7HR4oUNYd7ggYyIwSA/BX7DJ+UXXffLp6XNcUijyLvttbPVCYa/3xQ==}
     engines: {node: '>= 8'}
-    dev: true
+
+  /sveltekit-i18n/2.2.2_svelte@3.48.0:
+    resolution: {integrity: sha512-6eygICleGCSL7elY7A3trF8XUhV+mlW56ZSoD0UUKXlw+Y6u0MTTHDq48u1LyY73SfnlbPHXgTarhTjZ0BvUKA==}
+    peerDependencies:
+      svelte: ^3.x
+    dependencies:
+      '@sveltekit-i18n/base': 1.2.1_svelte@3.48.0
+      '@sveltekit-i18n/parser-default': 1.0.3
+      svelte: 3.48.0
+    dev: false
 
   /tar/6.1.11:
     resolution: {integrity: sha512-an/KZQzQUkZCkuoAA64hM92X0Urb6VpRhAFllDzz44U2mcD5scmT3zBc4VgVpkugF580+DQn8eAFSyoQt0tznA==}
