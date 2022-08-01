@@ -59,13 +59,6 @@
   /** @type {import('@svelteness/kit-docs').ResolvedSidebarConfig | null} */
   export let sidebar = null;
 
-  const i18n = {
-      lang: {
-        fr: 'French',
-        en: 'English'
-      }
-  };
-
   /** @type {import('@svelteness/kit-docs').NavbarConfig} */
   const navbar = {
     links: [{ title: 'Documentation', slug: '/docs', match: /\/docs/ }],
@@ -90,7 +83,7 @@
 </svelte:head>
 
 <KitDocs {meta}>
-  <KitDocsLayout {navbar} {sidebar} {i18n}>
+  <KitDocsLayout {navbar} {sidebar}>
     <div class="logo" slot="navbar-left">
       <Button href="/">
         {@html SvelteLogo}

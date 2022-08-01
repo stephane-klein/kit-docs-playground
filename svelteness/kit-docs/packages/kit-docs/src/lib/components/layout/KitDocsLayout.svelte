@@ -27,6 +27,7 @@
   import { isLargeScreen } from '$lib/stores/isLargeScreen';
   import { scrollDirection, scrollTop } from '$lib/stores/scroll';
   import { kitDocs } from '$lib/stores/kitDocs';
+  import * as i18nDefault from '$lib/translations/index';
 
   export let navigation: Partial<NavigationConfig> | null = null;
   export let navbar: NavbarConfig | false;
@@ -36,7 +37,7 @@
   export let isNavPopoverOpen = false;
 
   export let search = false;
-  export let i18n = null;
+  export let i18n = i18nDefault;
 
   let closeSidebar: CloseDialogCallback;
 

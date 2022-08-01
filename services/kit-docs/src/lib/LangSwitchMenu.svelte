@@ -1,13 +1,14 @@
-<script lang="ts">
+<script lang="js">
   import { Menu, MenuItem } from '@svelteness/kit-docs';
   import { frontmatter } from '@svelteness/kit-docs';
-  import { t } from '$lib/translations';
+  import { getI18nContext } from '@svelteness/kit-docs';
+  const { t, locale } = getI18nContext();
 </script>
 
 <Menu>
     <svelte:fragment slot="button">
-        {$t(`lang?.${$frontmatter.current_lang}`) ?? $frontmatter.current_lang}
-        <span class="sr-only">{$t(`lang?.${$frontmatter.current_lang}`) ?? $frontmatter.current_lang}</span>
+        {$t(`lang.${$frontmatter.current_lang}`, {fallbackValue: $frontmatter.current_lang})}
+        <span class="sr-only">{$t(`lang.${$frontmatter.current_lang}`, {fallbackValue: $frontmatter.current_lang})}</span>
     </svelte:fragment>
 
     {#each Object.entries($frontmatter.lang) as [lang, url]}
