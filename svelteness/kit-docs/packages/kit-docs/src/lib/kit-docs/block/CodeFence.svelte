@@ -1,5 +1,6 @@
 <script lang="ts">
-  import { t } from '$lib/translations';
+  import { getI18nContext } from '@svelteness/kit-docs';
+  const { t } = getI18nContext();
 
   import clsx from 'clsx';
 

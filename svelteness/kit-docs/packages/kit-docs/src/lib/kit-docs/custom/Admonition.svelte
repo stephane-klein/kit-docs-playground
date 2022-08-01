@@ -11,7 +11,8 @@
   export let type: 'note' | 'info' | 'tip' | 'warning' | 'danger' | 'experimental';
   export let title: string | null = null;
 
-  import { t } from '$lib/translations';
+  import { getI18nContext } from '@svelteness/kit-docs';
+  const { t } = getI18nContext();
 
   const icons = {
     note: NoteIcon,

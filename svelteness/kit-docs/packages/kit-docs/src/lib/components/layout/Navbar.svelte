@@ -12,7 +12,8 @@
   import ColorSchemeMenu from '$lib/components/base/ColorSchemeMenu.svelte';
   import NavLinkItem from './NavLink.svelte';
   import { getNavbarContext } from './contexts';
-  import { t } from '$lib/translations';
+  import { getI18nContext } from '@svelteness/kit-docs';
+  const { t } = getI18nContext();
 
   export let search = false;
 

@@ -16,7 +16,8 @@
   import { hideDocumentScrollbar } from '$lib/utils/scroll';
 
   import Overlay from './Overlay.svelte';
-  import { t } from '$lib/translations';
+  import { getI18nContext } from '@svelteness/kit-docs';
+  const { t } = getI18nContext();
 
   export let open = false;
   export let overlay = false;

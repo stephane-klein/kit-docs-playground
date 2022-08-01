@@ -6,7 +6,8 @@
   import Menu from '$lib/components/base/Menu.svelte';
   import MenuItem from '$lib/components/base/MenuItem.svelte';
   import { colorScheme, colorSchemes, isDarkColorScheme } from '$lib/stores/colorScheme';
-  import { t } from '$lib/translations';
+  import { getI18nContext } from '@svelteness/kit-docs';
+  const { t } = getI18nContext();
 
   const buttonIcon = {
     light: SunIcon,
