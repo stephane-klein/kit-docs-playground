@@ -1,5 +1,7 @@
 <script context="module">
   export const prerender = true;
+  import * as i18n from '$lib/translations/index';
+  const locale = i18n.locale;
 
   export const load = async ({ url, fetch }) => {
     const match = url.pathname.match(/(?<left_part>^\/docs\/)(?<lang>\w{2})(?<right_part>\/.*$)/)
@@ -41,7 +43,6 @@
   import { page } from '$app/stores';
   import SvelteLogo from '$img/svelte-horizontal.svg?raw';
 
-  import * as i18n from '$lib/translations/index';
   import {
     Button,
     KitDocs,
@@ -70,6 +71,7 @@
   $: category = $activeCategory ? `${$activeCategory}: ` : '';
   $: title = meta ? `${category}${meta.title} | KitDocs` : null;
   $: description = meta?.description;
+  $locale = meta.frontmatter.current_lang;
 </script>
 
 <svelte:head>

@@ -7,7 +7,8 @@
   import { page } from '$app/stores';
   import { useActiveHeaderLinks } from './useActiveHeaderLinks';
   import { getNavigationContext } from './contexts';
-  import { t } from '$lib/translations';
+  import { getI18nContext } from '@svelteness/kit-docs';
+  const { t } = getI18nContext();
 
   let __class = '';
   export { __class as class };
